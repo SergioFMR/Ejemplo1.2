@@ -1,0 +1,16 @@
+name: FlujoTrabajo1 # Nombre del workflow
+
+on:
+  push: # Se activará cuando haya un push al repositorio
+
+jobs:
+  prueba1: # Pueden haber varios jobs
+    runs-on: ubuntu-latest # Se ejecutará en la última versión de Ubuntu
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Mensaje
+        run: echo "Primera interacción con GitHub Actions"
+
