@@ -26,7 +26,7 @@ jobs:
       - name: "Muestra Contenido"
         run: cat alumnos.txt
 
-  Prueba2: 
+  prueba2: 
     runs-on: ubuntu-latest
     steps: 
       - name: "Crea Archivo"
