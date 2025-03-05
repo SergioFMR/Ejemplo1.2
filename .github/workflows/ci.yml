@@ -1,36 +1,34 @@
-name: FlujoTrabajo1
+name: FlujoTrabajo1 # Nombre del workflow
 
-on: [push]
+on:
+  push # Se activará cuando haya un push al repositorio
 
-jobs: 
-  prueba1: 
-    runs-on: ubuntu-latest
-    steps: 
-      - name: "Checkout del repositorio"
+jobs:
+  prueba1: # Pueden haber varios jobs
+    runs-on: ubuntu-latest # Se ejecutará en la última versión de Ubuntu
+
+    steps:
+      - name: Checkout del repositorio
         uses: actions/checkout@v3
 
-      - name: "Mensaje"
-        run: echo "Primera iteracción con Git ACTIONS"
+      - name: Mensaje
+        run: echo "Primera interacción con GitHub Actions"
 
-      - name: "Crea Archivo"
+      - name: Crea Archivo
         run: touch alumnos.txt
+      
+      - name: Adicion Alumnos
+        run: echo "Juan" >> alumnos.txt
+             echo "Pedro" >> alumnos.txt 
+             echo "Maria" >> alumnos.txt
 
-      - name: "Adiciona Alumnos"
-        run: |
-          echo "Alumno1" >> alumnos.txt
-          echo "Alumno2" >> alumnos.txt
-          echo "Alumno3" >> alumnos.txt
-          echo "Alumno4" >> alumnos.txt
-          echo "Alumno5" >> alumnos.txt
-
-      - name: "Muestra Contenido"
+      - name: Mostrar ALumnos
         run: cat alumnos.txt
-
-  prueba2: 
-    runs-on: ubuntu-latest
-    steps: 
-      - name: "Crea Archivo"
-        run: touch alumnos.txt
         
-      - name: "Muestra contenido de alumnos.txt"
-        run: cat alumnos.txt
+  prueba2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Crear Archivo"
+        run: touch alumnos.txt
+      - name: "Muesta contenido de alumnos"
+        run: cat alumnos.txt
