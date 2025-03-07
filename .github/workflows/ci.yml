@@ -1,14 +1,24 @@
-name: workflow-services
+name: FlujoTrabajo2
 
-on:
-    push:
-        branches:
-            - master
+on: 
+  push:
+    branches:
+      - master
 
 jobs: 
-  trabajo1: 
+  trabajo1:
     runs-on: ubuntu-latest
 
-    steps: 
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
       - name: listar archivos
         run: ls -la
